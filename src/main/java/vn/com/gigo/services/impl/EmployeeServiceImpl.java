@@ -48,7 +48,8 @@ public class EmployeeServiceImpl implements EmployeeService {
 	}
 	@Override
 	public Object getAllEmployee() {
-		return employeeMapper.employeesToEmployeeDtos(employeeRepo.findAll());
+		//return employeeMapper.employeesToEmployeeDtos(employeeRepo.findAll());
+		return employeeMapper.employeesToEmployeeDtos(employeeRepo.getAllEmployee());
 	}
 
 	@Override

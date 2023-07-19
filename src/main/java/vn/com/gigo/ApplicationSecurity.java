@@ -91,11 +91,6 @@ public class ApplicationSecurity {
 				.hasAnyAuthority("ADMIN").antMatchers("/roles", "/statistics/admin", "/employees")
 				.hasAnyAuthority("ADMIN");
 
-		// role employee
-		http.authorizeRequests()
-				.antMatchers("/orders/update/delivering/{id}", "/orders/update/success/{id}", "/orders/pay/**")
-				.hasAuthority("EMPLOYEE");
-
 		http.authorizeRequests()
 				.antMatchers("/auth", "/register", "/refresh", "/employees/account/**", "/subscribe/**",
 						"/accounts/forgot_password/**", "/accounts/reset_password/**", "/sendFeedback")
