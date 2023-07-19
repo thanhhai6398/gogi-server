@@ -17,4 +17,6 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long>{
 	
 	Employee findByAccount_Username(String username);
 
+	@Query(value="SELECT * FROM employees WHERE employees.account in (SELECT accounts.username FROM accounts WHERE accounts.account_id in (SELECT accounts_roles.account_id FROM accounts_roles WHERE accounts_roles.role_id = 3))", nativeQuery=true)
+	List<Employee> getAllEmployee();
 }
